@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Error</title>
-        <?php require_once 'components/style.php'?>
-    </head>
-    <body>
-        <div class="container">  
-            <div class="mt-3 mb-3">
-                <h1>Invalid Request</h1>
-            </div>
-            <div class="alert alert-warning" role="alert">
-                <p>You've made an invalid request. Please go back to index and try again.</p>
-				<a href='index.php'><button class="btn btn-outline-success" type='button'>Home</button></a>
-            </div>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <?php require_once 'components/style.php' ?>
+</head>
+
+<body>
+    <div class="container">
+        <div class="mt-3 mb-3">
+            <h1>Invalid Request</h1>
         </div>
-    </body>
+        <div class="alert alert-warning" role="alert">
+            <p>You've made an invalid request. Please go back to index and try again.</p>
+            <a href='index.php'><button class="btn btn-outline-success" type='button'>Home</button></a>
+        </div>
+    </div>
+</body>
+
 </html>
