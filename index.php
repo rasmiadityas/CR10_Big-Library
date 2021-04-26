@@ -38,6 +38,7 @@ $numrow = mysqli_num_rows($result);
                             <th>Type</th>
                             <th>Title</th>
                             <th>Author</th>
+                            <th>Year</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -52,6 +53,7 @@ $numrow = mysqli_num_rows($result);
                                 echo "<td>" . $row['medType'] . "</td>";
                                 echo "<td><a href='details.php?id=" . $row['medID'] . "&frpub=0'><img src='" . $row['medImage'] . "' class='avatar' alt='" . $row['medTitle'] . "'> " . $row['medTitle'] . "</a></td>";
                                 echo "<td>" . $row['autName'] . " " . $row['autSurname'] . "</td>";
+                                echo "<td>" . date('Y', strtotime($row['pubDate'])) . "</td>";
                                 if ($row['medStatus'] == 'Available') {
                                     echo "<td><span class='status text-success'>&bull;</span> " . $row['medStatus'] . "</td>";
                                 } else {
