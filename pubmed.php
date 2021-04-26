@@ -57,14 +57,34 @@ if ($_GET['id']) {
                             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                                 echo "<tr>";
                                 echo "<td>" . $row['medID'] . "</td>";
-                                echo "<td>" . $row['medType'] . "</td>";
-                                echo "<td><a href='details.php?id=" . $row['medID'] . "&frpub=$pubName'><img src='" . $row['medImage'] . "' class='avatar' alt='" . $row['medTitle'] . "'> " . $row['medTitle'] . "</a></td>";
-                                echo "<td>" . $row['autName'] . " " . $row['autSurname'] . "</td>";
-                                echo "<td>" . date('Y', strtotime($row['pubDate'])) . "</td>";
-                                if ($row['medStatus'] == 'Available') {
-                                    echo "<td><span class='status text-success'>&bull;</span> " . $row['medStatus'] . "</td>";
+                                if ($row['medType'] == '') {
+                                    echo "<td>N/A</td>";
                                 } else {
-                                    echo "<td><span class='status text-danger'>&bull;</span> " . $row['medStatus'] . "</td>";
+                                    echo "<td>" . $row['medType'] . "</td>";
+                                }
+                                if ($row['medTitle'] == '') {
+                                    echo "<td><a href='details.php?id=" . $row['medID'] . "&frpub=$pubName'><img src='" . $row['medImage'] . "' class='avatar' alt='N/A'> N/A</a></td>";
+                                } else {
+                                    echo "<td><a href='details.php?id=" . $row['medID'] . "&frpub=$pubName'><img src='" . $row['medImage'] . "' class='avatar' alt='" . $row['medTitle'] . "'> " . $row['medTitle'] . "</a></td>";
+                                }
+                                if ($row['autName'] == '' && $row['autSurname'] == '') {
+                                    echo "<td>N/A</td>";
+                                } else {
+                                    echo "<td>" . $row['autName'] . " " . $row['autSurname'] . "</td>";
+                                }
+                                if (date('Y', strtotime($row['pubDate'])) == -1) {
+                                    echo "<td>N/A</td>";
+                                } else {
+                                    echo "<td>" . date('Y', strtotime($row['pubDate'])) . "</td>";
+                                }
+                                if ($row['medStatus'] == '') {
+                                    echo "<td>N/A</td>";
+                                } else {
+                                    if ($row['medStatus'] == 'Available') {
+                                        echo "<td><span class='status text-success'>&bull;</span> " . $row['medStatus'] . "</td>";
+                                    } else {
+                                        echo "<td><span class='status text-danger'>&bull;</span> " . $row['medStatus'] . "</td>";
+                                    }
                                 }
                                 echo "<td><a href='details.php?id=" . $row['medID'] . "&frpub=$pubName' class='view' title='View' data-toggle='tooltip'><i class='material-icons'>&#xE417;</i></a>
                             <a href='update.php?id=" . $row['medID'] . "&frpub=$pubName' class='edit' title='Edit' data-toggle='tooltip'><i class='material-icons'>&#xE254;</i></a>
