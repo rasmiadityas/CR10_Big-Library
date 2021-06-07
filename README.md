@@ -1,6 +1,7 @@
-# FE21_CR10_Rasmi-Silasari
+# Portfolio: Big Library
 210423 Code Review 10 - Rasmiaditya Silasari
 
+This project exercises the application of CRUD using MySQL and PHP.
 - Database file (sql file to import) is inside the folder 'database'
 - Styling file (style.php) is inside the folder 'components'
 - Home page is index.php
